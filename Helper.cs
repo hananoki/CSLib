@@ -7,6 +7,14 @@ using System.Threading;
 
 namespace AppCommon {
 
+	public static class EncodeHelper {
+		public static Encoding Shift_JIS {
+			get {
+				return Encoding.GetEncoding( "shift_jis" );
+			}
+		}
+	}
+
 	public static class JsonUtils {
 		public static string ToJson<T>( T obj ) {
 			var builder = new StringBuilder();
