@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Collections.Generic;
-
 namespace CsLib {
 	public partial class LogWindow : Form {
 		public static LogWindow _instance;
