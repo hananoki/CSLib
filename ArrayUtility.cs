@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AppCommon {
+namespace CsLib {
 
 	public sealed class ArrayUtility {
 		public static void Add<T>( ref T[] array, T item ) {

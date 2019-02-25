@@ -25,8 +25,6 @@ public static class Win32 {
 
 	#endregion
 
-
-
 	#region winmm.dll
 
 	//サウンドを再生するWin32 APIの宣言

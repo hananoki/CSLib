@@ -1,21 +1,16 @@
 ﻿
 using System;
-using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 //using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-using Microsoft.Win32;
 
-//using libnnv.StringExtensions;
 
-namespace AppCommon {
+namespace CsLib {
 	public class CueSheet {
 		public class Track {
 			public string title;

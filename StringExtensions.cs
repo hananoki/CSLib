@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-namespace AppCommon {
+namespace CsLib {
 	
 	public static class StringExtensions {
 		public static string GetValue( this Dictionary<string, string> dic, string key ) {
