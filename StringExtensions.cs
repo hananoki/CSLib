@@ -34,7 +34,7 @@ namespace CsLib {
 			return Path.GetFileName( s );
 		}
 
-		public static string changeExt( this string s, string ext ) {
+		public static string ChangeExtention( this string s, string ext ) {
 			return Path.ChangeExtension( s, ext );
 		}
 

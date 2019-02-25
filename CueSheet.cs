@@ -141,7 +141,7 @@ namespace CsLib {
 				}
 				w.WriteLine( "PERFORMER \"{0}\"", m_performer );
 				w.WriteLine( "TITLE \"{0}\"", m_title );
-				w.WriteLine( "FILE \"{0}\" WAVE", filename.getFileName().changeExt( "wav" ) );
+				w.WriteLine( "FILE \"{0}\" WAVE", filename.getFileName().ChangeExtention( "wav" ) );
 				foreach( var t in m_track.Select( ( v, i ) => new { v, i } ) ) {
 					int min = 0;
 					int sec = 0;

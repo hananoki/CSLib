@@ -52,7 +52,7 @@
 			// 
 			// toolStripMenuItem1
 			// 
-			this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+			//this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
 			this.toolStripMenuItem1.Text = "すべてクリア";
