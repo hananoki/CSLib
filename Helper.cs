@@ -8,6 +8,29 @@ using System.Windows.Forms;
 
 namespace CsLib {
 
+	// Base64形式の汎用操作を提供するクラス
+	public static class Base64 {
+		// 指定した通常の文字列をUTF-8としてBase64文字列に変換する
+		public static string Encode( string str ) {
+			return Encode( str, Encoding.UTF8 );
+		}
+		// 上記のエンコードが指定できるバージョン
+		public static string Encode( string str, Encoding encode ) {
+			if( string.IsNullOrEmpty( str ) ) return "";
+			return Convert.ToBase64String( encode.GetBytes( str ) );
+		}
+
+		// 指定したBase64文字列をUTF-8として通常の文字列に変換する
+		public static string Decode( string base64Str ) {
+			return Decode( base64Str, Encoding.UTF8 );
+		}
+		// 上記のエンコードが指定できるバージョン
+		public static string Decode( string base64Str, Encoding encode ) {
+			if( string.IsNullOrEmpty( base64Str ) ) return "";
+			return encode.GetString( Convert.FromBase64String( base64Str ) );
+		}
+	}
+
 	public static class EncodeHelper {
 		public static Encoding Shift_JIS {
 			get {
@@ -77,6 +100,36 @@ namespace CsLib {
 			return true;
 		}
 
+
+		/// <summary>
+		/// UACが有効になっているかを調べる
+		/// </summary>
+		/// <returns>UACが有効になっている時はtrue。</returns>
+		public static bool IsUacEnabled() {
+			//キーを開く
+			Microsoft.Win32.RegistryKey regKey =
+					Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
+							@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" );
+			//キーが見つからない時はUACが有効ではない
+			if( regKey == null )
+				return false;
+			//値を読み取る
+			int val = (int) regKey.GetValue( "EnableLUA", 0 );
+			//0以外の時はUACが有効
+			return val != 0;
+		}
+
+		public static bool IsAdministrator() {
+			//現在のユーザーを表すWindowsIdentityオブジェクトを取得する
+			System.Security.Principal.WindowsIdentity wi =
+					System.Security.Principal.WindowsIdentity.GetCurrent();
+			//WindowsPrincipalオブジェクトを作成する
+			System.Security.Principal.WindowsPrincipal wp =
+					new System.Security.Principal.WindowsPrincipal( wi );
+			//Administratorsグループに属しているか調べる
+			return wp.IsInRole(
+					System.Security.Principal.WindowsBuiltInRole.Administrator );
+		}
 
 		/// <summary>
 		/// 
